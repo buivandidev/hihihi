@@ -1,0 +1,481 @@
+{
+	"info": {
+		"_postman_id": "12345678-1234-1234-1234-123456789012",
+		"name": "WebApiApp - CRUD Test Collection",
+		"description": "Complete CRUD operations test for Classes and Students API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Classes",
+			"item": [
+				{
+					"name": "GET All Classes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5179/api/Classes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5179",
+							"path": [
+								"api",
+								"Classes"
+							]
+						},
+						"description": "Retrieve all classes with their students"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Class by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5179/api/Classes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5179",
+							"path": [
+								"api",
+								"Classes",
+								"1"
+							]
+						},
+						"description": "Retrieve a specific class by ID"
+					},
+					"response": []
+				},
+				{
+					"name": "POST Create Class",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Lớp 10A1\",\n  \"description\": \"Lớp chuyên Toán\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5179/api/Classes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5179",
+							"path": [
+								"api",
+								"Classes"
+							]
+						},
+						"description": "Create a new class"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Update Class",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"name\": \"Lớp 10A1 - Updated\",\n  \"description\": \"Lớp chuyên Toán - Cập nhật\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5179/api/Classes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5179",
+							"path": [
+								"api",
+								"Classes",
+								"1"
+							]
+						},
+						"description": "Update an existing class"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Class",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5179/api/Classes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5179",
+							"path": [
+								"api",
+								"Classes",
+								"1"
+							]
+						},
+						"description": "Delete a class by ID"
+					},
+					"response": []
+				}
+			],
+			"description": "CRUD operations for Classes"
+		},
+		{
+			"name": "Students",
+			"item": [
+				{
+					"name": "GET All Students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5179/api/Students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5179",
+							"path": [
+								"api",
+								"Students"
+							]
+						},
+						"description": "Retrieve all students with their class information"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Student by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5179/api/Students/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5179",
+							"path": [
+								"api",
+								"Students",
+								"1"
+							]
+						},
+						"description": "Retrieve a specific student by ID"
+					},
+					"response": []
+				},
+				{
+					"name": "POST Create Student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"fullName\": \"Nguyễn Văn A\",\n  \"email\": \"nguyenvana@example.com\",\n  \"dateOfBirth\": \"2005-03-15T00:00:00\",\n  \"classId\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5179/api/Students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5179",
+							"path": [
+								"api",
+								"Students"
+							]
+						},
+						"description": "Create a new student"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Update Student",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"fullName\": \"Nguyễn Văn A - Updated\",\n  \"email\": \"nguyenvana.updated@example.com\",\n  \"dateOfBirth\": \"2005-03-15T00:00:00\",\n  \"classId\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5179/api/Students/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5179",
+							"path": [
+								"api",
+								"Students",
+								"1"
+							]
+						},
+						"description": "Update an existing student"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Student",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5179/api/Students/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5179",
+							"path": [
+								"api",
+								"Students",
+								"1"
+							]
+						},
+						"description": "Delete a student by ID"
+					},
+					"response": []
+				}
+			],
+			"description": "CRUD operations for Students"
+		},
+		{
+			"name": "Test Flow - Complete CRUD",
+			"item": [
+				{
+					"name": "1. Create Class",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Lớp 11B2\",\n  \"description\": \"Lớp chuyên Lý\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5179/api/Classes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5179",
+							"path": [
+								"api",
+								"Classes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. Get All Classes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5179/api/Classes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5179",
+							"path": [
+								"api",
+								"Classes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3. Create Student in Class",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"fullName\": \"Trần Thị B\",\n  \"email\": \"tranthib@example.com\",\n  \"dateOfBirth\": \"2006-07-20T00:00:00\",\n  \"classId\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5179/api/Students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5179",
+							"path": [
+								"api",
+								"Students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4. Get All Students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5179/api/Students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5179",
+							"path": [
+								"api",
+								"Students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5. Update Student",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"fullName\": \"Trần Thị B - Đã Cập Nhật\",\n  \"email\": \"tranthib.updated@example.com\",\n  \"dateOfBirth\": \"2006-07-20T00:00:00\",\n  \"classId\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5179/api/Students/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5179",
+							"path": [
+								"api",
+								"Students",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6. Get Student by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5179/api/Students/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5179",
+							"path": [
+								"api",
+								"Students",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7. Delete Student",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5179/api/Students/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5179",
+							"path": [
+								"api",
+								"Students",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "8. Delete Class",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5179/api/Classes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5179",
+							"path": [
+								"api",
+								"Classes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Complete test flow: Create -> Read -> Update -> Delete"
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:5179"
+		}
+	]
+}

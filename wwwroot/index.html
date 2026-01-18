@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Sinh Viên & Lớp Học</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-graduation-cap"></i> Hệ Thống Quản Lý Sinh Viên</h1>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('classes')">
+                <i class="fas fa-school"></i> Quản Lý Lớp Học
+            </button>
+            <button class="tab-btn" onclick="showTab('students')">
+                <i class="fas fa-users"></i> Quản Lý Sinh Viên
+            </button>
+        </div>
+
+        <!-- Classes Tab -->
+        <div id="classes-tab" class="tab-content active">
+            <div class="section-header">
+                <h2>Danh Sách Lớp Học</h2>
+                <button class="btn btn-primary" onclick="showClassModal()">
+                    <i class="fas fa-plus"></i> Thêm Lớp
+                </button>
+            </div>
+            
+            <div class="table-container">
+                <table id="classes-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên Lớp</th>
+                            <th>Mô Tả</th>
+                            <th>Số Sinh Viên</th>
+                            <th>Hành Động</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Students Tab -->
+        <div id="students-tab" class="tab-content">
+            <div class="section-header">
+                <h2>Danh Sách Sinh Viên</h2>
+                <button class="btn btn-primary" onclick="showStudentModal()">
+                    <i class="fas fa-plus"></i> Thêm Sinh Viên
+                </button>
+            </div>
+            
+            <div class="table-container">
+                <table id="students-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Họ Tên</th>
+                            <th>Email</th>
+                            <th>Ngày Sinh</th>
+                            <th>Lớp</th>
+                            <th>Hành Động</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Class Modal -->
+    <div id="class-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="class-modal-title">Thêm Lớp Học</h2>
+                <span class="close" onclick="closeClassModal()">&times;</span>
+            </div>
+            <form id="class-form">
+                <input type="hidden" id="class-id">
+                
+                <div class="form-group">
+                    <label for="class-name">Tên Lớp <span class="required">*</span></label>
+                    <input type="text" id="class-name" required maxlength="100" placeholder="Nhập tên lớp">
+                </div>
+
+                <div class="form-group">
+                    <label for="class-description">Mô Tả</label>
+                    <textarea id="class-description" rows="4" maxlength="500" placeholder="Nhập mô tả lớp học"></textarea>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeClassModal()">Hủy</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Lưu
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Student Modal -->
+    <div id="student-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="student-modal-title">Thêm Sinh Viên</h2>
+                <span class="close" onclick="closeStudentModal()">&times;</span>
+            </div>
+            <form id="student-form">
+                <input type="hidden" id="student-id">
+                
+                <div class="form-group">
+                    <label for="student-fullname">Họ Tên <span class="required">*</span></label>
+                    <input type="text" id="student-fullname" required maxlength="200" placeholder="Nhập họ tên sinh viên">
+                </div>
+
+                <div class="form-group">
+                    <label for="student-email">Email <span class="required">*</span></label>
+                    <input type="email" id="student-email" required maxlength="100" placeholder="example@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="student-dob">Ngày Sinh <span class="required">*</span></label>
+                    <input type="date" id="student-dob" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="student-class">Lớp <span class="required">*</span></label>
+                    <select id="student-class" required>
+                        <option value="">-- Chọn lớp --</option>
+                    </select>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeStudentModal()">Hủy</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Lưu
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
